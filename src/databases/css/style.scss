@@ -1,0 +1,68 @@
+body {
+  font-family: "ヒラギノ角ゴシック", "Hiragino Sans", sans-serif !important;
+  color: #484f56 !important;
+  background-color: #ffffff !important;
+}
+//ボタン関係
+.btns {
+  a {
+    color: #fff !important;
+    display: block;
+    text-decoration: none;
+  }
+}
+
+.head {
+  width: 100%;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.5);
+  padding: 5px 0;
+  margin-bottom: 20px;
+}
+.head-ttl {
+  margin-left: 10px;
+}
+.global-links {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.frontPage {
+  width: 98vw;
+  margin: 0 auto 20px;
+}
+.listPage-items {
+  width: 98vw;
+  margin: 0 auto 20px !important;
+}
+.listPage-item {
+  position: relative;
+  padding: 10px;
+  box-sizing: border-box;
+  margin-bottom: 5px;
+  span {
+    margin-right: 10px;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+.listPage-p {
+  text-align: center;
+}
+.listPage-foot {
+  width: 330px;
+  margin: 0 auto;
+}
+.deletecolumnPage {
+  text-align: center;
+}
+.registrationPage {
+  width: 90vw;
+  margin: 0 auto;
+}
+
+.actionPage {
+  text-align: center;
+  color: red;
+  font-weight: bold;
+}
