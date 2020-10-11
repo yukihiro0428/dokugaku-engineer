@@ -15,7 +15,7 @@ function dbConnect()
 		echo '<p>Error:データベースに接続できませんでした</p>';
 		error_log('Error: fail to connect dateBase');
 		echo 'Debugging error;' . mysqli_connect_error();
-		// error_log('Debugging error:' . mysqli_connect_error());
+		error_log('Debugging error:' . mysqli_connect_error());
 		exit;
 	}
 	return $link;
