@@ -54,6 +54,7 @@ EOT;
 		echo '<p>Error:データの追加に失敗しました</p><p>再登録をお願い致します</p>' . PHP_EOL;
 		error_log('Error: fail to add review');
 		error_log('Debugging error:' . mysqli_error($link));
+		echo 'Debugging error;' . mysqli_connect_error();
 	}
 	//連番を更新
 	updateId($link);
