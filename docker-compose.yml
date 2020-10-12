@@ -11,6 +11,11 @@ services:
       - ./src:/var/www/html
     depends_on:
       - db
+    environment:
+      DB_HOST: "db"
+      DB_USERNAME: "book_log"
+      DB_PASSWORD: "pass"
+      DB_DATABASE: "book_log"
 
   db:
     image: mysql:5.5.62
