@@ -47,11 +47,12 @@ EOT;
 	$result = mysqli_query($link, $createTableSql);
 	if ($result) {
 		echo 'テーブルを再作成しました' . PHP_EOL;
-	} else {
-		echo 'Error:テーブルの作成に失敗しました' . PHP_EOL;
-		error_log('Error: fail to create table');
-		error_log('Debugging error:' . mysqli_error($link));
 	}
+	// else {
+	// 	echo 'Error:テーブルの作成に失敗しました' . PHP_EOL;
+	// 	error_log('Error: fail to create table');
+	// 	error_log('Debugging error:' . mysqli_error($link));
+	// }
 }
 
 //バリデートする
@@ -75,7 +76,8 @@ function validate($review)
 
 	// 読書状況=statusが正しいかチェック
 	$choice = array('未読', '読んでいる', '読了');
-	if (!in_array($review['status'], $choice, true)) {
+	$statusUtf8 = mb_convert_encoding($review['status'], "UTF-8");
+	if (!in_array($statusUtf8, $choice, true)) {
 		$errors['status'] = '未読、読んでいる、読了のいずれかを入力してください';
 	}
 
