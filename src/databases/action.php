@@ -18,8 +18,6 @@
 			'impressions' => trim($_POST['impressions'])
 		];
 	}
-	var_dump($_POST['status']); //追記
-	echo '<p>入力時</p>';
 	//バリデート出力
 	$validated = validate($review);
 	if (count($validated) > 0) {

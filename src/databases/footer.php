@@ -1,7 +1,4 @@
-<?php
-// mysqli_close($link);
-$link->close();
-?>
+<?php $link->close(); ?>
 </body>
 
 </html>

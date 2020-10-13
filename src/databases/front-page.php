@@ -1,7 +1,5 @@
 <?php require 'header.php'; ?>
-<?php
-dropTable($link);
-createTable($link); ?>
+<?php createTable($link); ?>
 <section class="global-links">
 	<h3>HOMEページ</h3>
 	<p class="btn btn-primary btns"><a href="list.php">一覧ページへ</a></p>
