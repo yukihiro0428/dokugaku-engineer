@@ -18,17 +18,17 @@ function dbConnect()
 	return $link;
 }
 
-// function dropTable($link)
-// {
-// 	$dropTableSql = 'DROP TABLE IF EXISTS reviews;';
-// 	$result = mysqli_query($link, $dropTableSql);
-// 	if ($result) {
-// 		echo '<p>テーブルを削除しました</p>';
-// 	} else {
-// 		echo '<p>Error:テーブルの削除に失敗しました</p>';
-// 		echo 'Debugging error:' . mysqli_error($link) . PHP_EOL;
-// 	}
-// }
+function dropTable($link)
+{
+	$dropTableSql = 'DROP TABLE IF EXISTS reviews;';
+	$result = mysqli_query($link, $dropTableSql);
+	if ($result) {
+		echo '<p>テーブルを削除しました</p>';
+	} else {
+		echo '<p>Error:テーブルの削除に失敗しました</p>';
+		echo 'Debugging error:' . mysqli_error($link) . PHP_EOL;
+	}
+}
 
 function createTable($link)
 {
@@ -42,7 +42,7 @@ CREATE TABLE reviews (
 	evaluation INTEGER(1),
 	impressions VARCHAR(1000),
 	creation_date_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
-) DEFAULT CHARACTER SET=utf8mb4;
+) DEFAULT CHARACTER SET=utf8;
 EOT;
 	$result = mysqli_query($link, $createTableSql);
 	if ($result) {
@@ -76,10 +76,7 @@ function validate($review)
 
 	// 読書状況=statusが正しいかチェック
 	$choice = array('未読', '読んでいる', '読了');
-	$statusUtf8 = mb_convert_encoding($review['status'], "UTF-8");
-	var_dump($statusUtf8);
-	var_dump($review['status']);
-	if (!in_array($statusUtf8, $choice, true)) {
+	if (!in_array($review['status'], $choice, true)) {
 		$errors['status'] = '未読、読んでいる、読了のいずれかを入力してください';
 	}
 
