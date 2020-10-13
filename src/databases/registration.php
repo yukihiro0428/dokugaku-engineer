@@ -6,9 +6,9 @@
 </section>
 
 <div class="registrationPage">
-	<form method="post" action="action.php">
+	<form method="post" action="action.php" accept-charset="UTF-8">
 		<p class="form-group">
-			<label for="label_ttl"">書籍名</label>
+			<label for="label_ttl">書籍名</label>
 			<textarea class=" form-control" id="label_ttl" name="title" cols="30" rows="5"></textarea>
 		</p>
 		<p class="form-group">
