@@ -7,7 +7,9 @@ function dbConnect()
 	$dbUsername = $_ENV['DB_USERNAME'];
 	$dbPassword = $_ENV['DB_PASSWORD'];
 	$dbDatabase = $_ENV['DB_DATABASE'];
-	$link = mysqli_connect($dbHost, $dbUsername, $dbPassword, $dbDatabase);
+	// $link = mysqli_connect($dbHost, $dbUsername, $dbPassword, $dbDatabase);
+	$link = new mysqli($dbHost, $dbUsername, $dbPassword, $dbDatabase);
+	$link->set_charset('utf8');
 	if (!$link) {
 		echo '<p>Error:データベースに接続できませんでした</p>';
 		error_log('Error: fail to connect dateBase');
