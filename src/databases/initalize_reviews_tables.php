@@ -42,7 +42,7 @@ CREATE TABLE reviews (
 	evaluation INTEGER(1),
 	impressions VARCHAR(1000),
 	creation_date_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
-) DEFAULT CHARACTER SET=utf8;
+) DEFAULT CHARACTER SET=utf8mb4;
 EOT;
 	$result = mysqli_query($link, $createTableSql);
 	if ($result) {

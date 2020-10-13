@@ -1,5 +1,4 @@
 <?php require 'header.php'; ?>
-<?php dropTable($link); ?>
 <?php createTable($link); ?>
 <section class="global-links">
 	<h3>HOMEページ</h3>

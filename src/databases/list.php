@@ -19,6 +19,7 @@
 		echo '<p>' . '読んだ時期(読んでいる場合):' . $review_anw['time'] . '</p>';
 		echo '<p>' . '感想:' . $review_anw['impressions'] . '</p>';
 		echo '</li>';
+		var_dump($review_anw['status']);
 	}
 	mysqli_free_result($results);
 	?>
