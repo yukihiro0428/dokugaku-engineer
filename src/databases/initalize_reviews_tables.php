@@ -77,6 +77,7 @@ function validate($review)
 	// 読書状況=statusが正しいかチェック
 	$choice = array('未読', '読んでいる', '読了');
 	$statusUtf8 = mb_convert_encoding($review['status'], "UTF-8");
+	var_dump($statusUtf8);
 	if (!in_array($statusUtf8, $choice, true)) {
 		$errors['status'] = '未読、読んでいる、読了のいずれかを入力してください';
 	}
