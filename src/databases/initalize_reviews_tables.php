@@ -77,8 +77,7 @@ function validate($review)
 	}
 
 	// 読書状況=statusが正しいかチェック
-	$choice = array('未読', '読んでいる', '読了');
-	if (!in_array($review['status'], $choice, true)) {
+	if (!in_array($review['status'], ['未読', '読んでいる', '読了'])) {
 		$errors['status'] = '未読、読んでいる、読了のいずれかを入力してください';
 	}
 
@@ -104,6 +103,38 @@ function validate($review)
 		$errors['impressions'] = '感想は1000文字以内で入力してください';
 	}
 	return $errors;
+}
+//テーブルにデータを入力する
+function createReview($review, $link)
+{
+	// SQLに登録する処理
+	$sql = <<<EOT
+INSERT INTO reviews (
+	title,
+	author,
+	status,
+	time,
+	evaluation,
+	impressions
+) VALUES (
+	"{$review['title']}",
+	"{$review['author']}",
+	"{$review['status']}",
+	"{$review['time']}",
+	"{$review['evaluation']}",
+	"{$review['impressions']}"
+)
+EOT;
+
+	$result = mysqli_query($link, $sql);
+	if ($result) {
+		echo '<p class="action_add">データを追加しました</p>' . PHP_EOL;
+	} else {
+		echo '<p>Error:データの追加に失敗しました</p><p>再登録をお願い致します</p>' . PHP_EOL;
+		error_log('Error: fail to add review');
+		error_log('Debugging error:' . mysqli_error($link));
+	}
+	return $result;
 }
 
 //連番更新

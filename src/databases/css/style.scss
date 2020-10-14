@@ -62,11 +62,15 @@ body {
   margin: 0 auto;
 }
 
-.actionPage {
-  text-align: center;
+.validated_result {
+  padding-left: 5vw;
+}
+.validated_result li {
   color: red;
   font-weight: bold;
 }
-.actionPage ul {
-  list-style: none;
+.action_add {
+  text-align: center;
+  color: #28a745;
+  font-weight: bold;
 }
