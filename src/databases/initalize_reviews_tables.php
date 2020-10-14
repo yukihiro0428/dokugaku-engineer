@@ -83,16 +83,13 @@ function validate($review)
 	}
 
 	//読んだ時期
-	$date = $review['time'];
-	if (strlen($date)) {
-		list($Y, $m, $d) = explode('-', $date);
-	}
-	if (!strlen($date)) {
+	$dates = explode('-', $review['time']);
+	if (!strlen($review['time'])) {
 		$errors['time'] = '読んだ日もしくは最後に読んだ日のデータを入力してください';
-	} elseif (!checkdate($m, $d, $Y) === true) {
-		$errors['time'] = '存在しない日付です';
-	} elseif (!strptime($date, '%Y-%m-%d')) {
-		$errors['time'] = '存在しない日付です';
+	} elseif (count($dates) !== 3) {
+		$errors['time'] = '正しい形式で入力してください';
+	} elseif (!checkdate($dates[1], $dates[2], $dates[0])) {
+		$errors['time'] = '正しい日付で入力してください';
 	}
 
 	//評価=evaluation の数値チェック
@@ -106,8 +103,6 @@ function validate($review)
 	} elseif (strlen($review['impressions']) > 1000) {
 		$errors['impressions'] = '感想は1000文字以内で入力してください';
 	}
-
-
 	return $errors;
 }
 

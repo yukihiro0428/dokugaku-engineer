@@ -29,7 +29,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 				<li><?php echo $error; ?></li>
 			<?php endforeach; ?>
 		</ul>
-	<?php endif;
+	<?php endif; ?>
+
+	<?php
 	//SQLに登録する処理
 	$sql = <<<EOT
 INSERT INTO reviews (
@@ -49,11 +51,7 @@ INSERT INTO reviews (
 )
 EOT;
 
-	if (!count($validated)) {
-		$result = mysqli_query($link, $sql);
-	} else {
-		return;
-	}
+	$result = mysqli_query($link, $sql);
 	if ($result) {
 		echo '<p>データを追加しました</p>' . PHP_EOL;
 	} else {
@@ -61,9 +59,10 @@ EOT;
 		error_log('Error: fail to add review');
 		error_log('Debugging error:' . mysqli_error($link));
 	}
-	return $result;
-	// 連番を更新
+	//連番を更新
 	updateId($link);
+
+
 	?>
 </div>
 <?php require 'footer.php'; ?>
