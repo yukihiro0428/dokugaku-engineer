@@ -2,7 +2,7 @@
 <section class="global-links">
 	<h3>一覧ページ</h3>
 	<p class="btn btn-success btns"><a href="registration.php">登録ページへ</a></p>
-	<p class="btn btn-info btns"><a href="front-page.php">HOMEへ</a></p>
+	<p class="btn btn-info btns"><a href="index.php">HOMEへ</a></p>
 </section>
 <ul class="list-group listPage-items">
 	<?php

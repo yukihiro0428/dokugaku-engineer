@@ -12,7 +12,7 @@
 
 <body>
 	<header class="head">
-		<a href="front-page.php">
+		<a href="index.php">
 			<h1 class="head-ttl">読書ログ</h1>
 		</a>
 	</header>
