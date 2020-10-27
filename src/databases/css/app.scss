@@ -1,0 +1,12 @@
+//Line-height
+$headings-line-height: 1.5;
+$line-height-base: 1.65;
+
+// Colors
+$gray-dark: #546e7a;
+
+// Font-family
+$font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+  "Yu Gothic", YuGothic, Verdana, Meiryo, "M+ 1p", sans-serif;
+
+@import "/var/www/html/vendor/twbs/bootstrap/scss/bootstrap";
