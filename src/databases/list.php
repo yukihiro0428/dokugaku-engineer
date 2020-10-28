@@ -1,8 +1,10 @@
 <?php require 'header.php'; ?>
 <section class="global-links">
 	<h3>一覧ページ</h3>
-	<p class="btn btn-success btns"><a href="registration.php">登録ページへ</a></p>
-	<p class="btn btn-info btns"><a href="index.php">HOMEへ</a></p>
+	<?php
+	include __DIR__ . '/link/link_registration.php';
+	include __DIR__ . '/link/link_home.php';
+	?>
 </section>
 <ul class="list-group listPage-items">
 	<?php

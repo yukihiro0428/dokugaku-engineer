@@ -2,8 +2,11 @@
 <?php createTable($link); ?>
 <section class="global-links">
 	<h3>HOMEページ</h3>
-	<p class="btn btn-primary btns"><a href="list.php">一覧ページへ</a></p>
-	<p class="btn btn-success btns"><a href="registration.php">登録ページへ</a></p>
+	<?php
+	include __DIR__ . '/link/link_list.php';
+	include __DIR__ . '/link/link_registration.php';
+	?>
+
 </section>
 
 <section class="frontPage">

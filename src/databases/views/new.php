@@ -1,7 +1,9 @@
 <section class="global-links">
 	<h3>登録ページ</h3>
-	<p class="btn btn-primary btns"><a href="list.php">一覧ページへ</a></p>
-	<p class="btn btn-info btns"><a href="index.php">HOMEへ</a></p>
+	<?php
+	include __DIR__ . '/../link/link_list.php';
+	include __DIR__ . '/../link/link_home.php';
+	?>
 </section>
 <?php if (count($validated)) : ?>
 	<ul class="validated_result">
