@@ -1,4 +1,15 @@
-<?php require 'header.php'; ?>
+<?php
+require_once __DIR__ . '/header.php';
+require_once __DIR__ . '/escape.php';
+
+$reviews = [];
+$sql = 'SELECT id, title, author, status, time, evaluation, impressions, creation_date_time FROM reviews';
+$results = mysqli_query($link, $sql);
+while ($review = mysqli_fetch_assoc($results)) {
+	$reviews[] = $review;
+}
+mysqli_free_result($results);
+?>
 <section class="global-links">
 	<h3>一覧ページ</h3>
 	<?php
@@ -7,23 +18,19 @@
 	?>
 </section>
 <ul class="list-group listPage-items">
-	<?php
-	// echo '登録されている読書ログを表示します' . PHP_EOL;
-	$sql = 'SELECT id, title, author, status, time, evaluation, impressions, creation_date_time FROM reviews';
-	$results = mysqli_query($link, $sql);
-	while ($review_anw = mysqli_fetch_assoc($results)) {
-		echo '<li class="list-group-item listPage-item">';
-		echo '<h4>' . $review_anw['id'] . '</h4>';
-		echo '<h4>' . '書籍名:' . $review_anw['title'] . '</h4>';
-		echo '<p><span>' . '著者名:' . $review_anw['author'] . '/</span>';
-		echo '<span>' . '読書状況:' . $review_anw['status'] . '/</span>';
-		echo '<span>' . '評価:' . $review_anw['evaluation'] . '</span>';
-		echo '<p>' . '読んだ時期(読んでいる場合):' . $review_anw['time'] . '</p>';
-		echo '<p>' . '感想:' . $review_anw['impressions'] . '</p>';
-		echo '</li>';
-	}
-	mysqli_free_result($results);
-	?>
+	<?php if (count($reviews)) : ?>
+		<?php foreach ($reviews as $review) : ?>
+			<li class="list-group-item listPage-item">
+				<h4><?php echo escape($review['id']); ?></h4>
+				<h4>書籍名:<?php echo escape($review['title']); ?></h4>
+				<p><span>著者名:<?php echo escape($review['author']); ?>/</span><span>読書状況:<?php echo escape($review['status']); ?>/</span><span>評価:<?php echo escape($review['evaluation']); ?></span></p>
+				<p>読んだ時期(読んでいる場合):<?php echo escape($review['time']); ?></p>
+				<p>感想:<?php echo nl2br(escape($review['impressions']), false); ?></p>
+			</li>
+		<?php endforeach; ?>
+	<?php else : ?>
+		<p>データが登録されていません</p>
+	<?php endif; ?>
 </ul>
 <p class="listPage-p">削除するデータがあれば番号を入力してください</p>
 <div class="listPage-foot">
@@ -37,4 +44,4 @@
 	</form>
 </div>
 
-<?php require 'footer.php'; ?>
+<?php require_once __DIR__ . '/footer.php'; ?>

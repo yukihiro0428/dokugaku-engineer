@@ -1,4 +1,4 @@
-<?php require 'header.php'; ?>
+<?php require_once __DIR__ . '/header.php'; ?>
 <section class="global-links">
 	<h3>HOMEページ</h3>
 	<?php
@@ -9,4 +9,4 @@
 </section>
 <p class="action_add">データを追加しました</p>
 
-<?php require 'footer.php'; ?>
+<?php require_once __DIR__ . '/footer.php'; ?>

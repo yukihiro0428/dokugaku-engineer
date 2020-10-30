@@ -1,4 +1,4 @@
-<?php require 'header.php'; ?>
+<?php require_once __DIR__ . '/header.php'; ?>
 <section class="global-links">
 	<h3>削除結果ページ</h3>
 	<?php
@@ -38,4 +38,4 @@
 
 	?>
 </div>
-<?php require 'footer.php'; ?>
+<?php require_once __DIR__ . '/footer.php'; ?>

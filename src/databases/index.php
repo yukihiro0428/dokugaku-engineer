@@ -1,5 +1,7 @@
-<?php require 'header.php'; ?>
-<?php createTable($link); ?>
+<?php
+require_once __DIR__ . '/header.php';
+createTable($link);
+?>
 <section class="global-links">
 	<h3>HOMEページ</h3>
 	<?php
@@ -30,4 +32,4 @@
 	</ul>
 </section>
 
-<?php require 'footer.php'; ?>
+<?php require_once __DIR__ . '/footer.php'; ?>
